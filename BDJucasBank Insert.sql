@@ -42,3 +42,38 @@ insert into tipoOperacao
 values ('Débito'),
        ('Saque'),
 	   ('Transferência');
+
+
+/* 5.Agendar uma transferência da conta do Patinhas que possui saldo de 250000.00 para a conta de 650000.50. Agendar para 25DEZ23, valor 100000.00 */
+
+insert into agendamento (idTipoOperacao, idContaOrigem, idContaDestino, valor, dataAgendamento)
+values (3, 26, 19, '100000.00', '25/12/2023'); 
+
+
+/* 6.Atualizar todo o endereço da Minie (logradouro, numero e complemento), mas mantendo a cidade. */
+
+update clientes
+set logradouro = 'Av Bandeirantes 1614 ap 1105'
+where idCliente = 8
+/* Adicionar na tabela numero e complemento */
+
+
+/* 7.Atualizar o celular do Mickey */
+
+update clientes
+set celular = '21997402397'
+where idCliente = 7
+
+
+/* 8.Inserir 2 saques conforme dados abaixo:
+      Conta do Mickey, valor: 100.00
+      Conta do Huguinho, valor: 250.00 */
+
+
+
+
+select * from clientes where idCliente = 7
+select * from conta
+select * from tipoOperacao
+select * from agendamento
+
