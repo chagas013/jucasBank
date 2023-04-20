@@ -71,6 +71,11 @@ where idCliente = 7
 
 insert into tipoOperacao 
 values (
+	
+	
+/* 9.Inserir 2 depósitos conforme dados abaixo:
+      Conta da Minie, valor: 1100.00
+      Conta do Donald, valor: 450.00 */
 
 
 
