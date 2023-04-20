@@ -69,11 +69,13 @@ where idCliente = 7
       Conta do Mickey, valor: 100.00
       Conta do Huguinho, valor: 250.00 */
 
+insert into tipoOperacao 
+values (
 
 
 
-select * from clientes where idCliente = 7
-select * from conta
+
+select * from clientes
 select * from tipoOperacao
 select * from agendamento
 
