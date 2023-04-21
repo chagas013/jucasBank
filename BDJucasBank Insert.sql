@@ -69,17 +69,31 @@ where idCliente = 7
       Conta do Mickey, valor: 100.00
       Conta do Huguinho, valor: 250.00 */
 
-insert into tipoOperacao 
-values (
+insert into movimentacoes (idContaOrigem, idContaDestino, idTipoOperacao, valor)
+values (23, 23, 2, '100.00'),
+	   (20, 20, 2, '250.00');
 	
 	
 /* 9.Inserir 2 depósitos conforme dados abaixo:
       Conta da Minie, valor: 1100.00
       Conta do Donald, valor: 450.00 */
 
+insert into movimentacoes (idContaOrigem, idContaDestino, idTipoOperacao, valor)
+values (24, 24, 1, 1100.00),
+       (17, 17, 1, 450.00);
+
+
+/* 10.Inserir 2 transferências conforme dados abaixo:
+      Conta da Zezinho para conta da Minie, valor: 350.50
+      Conta do Donald para conta da Huguinho, valor: 50.00 */
+
+insert into movimentacoes (idContaOrigem, idContaDestino, idTipoOperacao, valor)
+values (22, 24, 3, 350.50),
+       (17, 20, 3, 50.00);
 
 
 
+select * from conta
 select * from clientes
 select * from tipoOperacao
 select * from agendamento
