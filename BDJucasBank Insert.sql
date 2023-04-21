@@ -72,6 +72,9 @@ where idCliente = 7
 insert into movimentacoes (idContaOrigem, idContaDestino, idTipoOperacao, valor)
 values (23, 23, 2, '100.00'),
 	   (20, 20, 2, '250.00');
+
+	update movimentacoes 
+	set dataHora = '18/03/2023' where idMovimentacao=6
 	
 	
 /* 9.Inserir 2 depósitos conforme dados abaixo:
@@ -97,4 +100,20 @@ select * from conta
 select * from clientes
 select * from tipoOperacao
 select * from agendamento
+select * from movimentacoes
+
+/* 11.Buscar nome, contato, cidade e estado de todos os correntistas com contas bloqueadas, em ordem alfabética. */
+
+select nome, celular, cidade, estado from clientes where idCliente = 2 or idCliente = 6 order by nome asc
+
+/* 12.Buscar quantos correntistas o banco possui por cidade. */
+
+select cidade, count (nome) as 'Qtd de Correntistas' from clientes group by cidade
+
+/* 13.Buscar todas as movimentações que ocorreram em determinado mês/ano. O mês e o ano ficam a seu critério */
+
+select * from movimentacoes where dataHora > '01/04/2023' and dataHora < '30/04/2023'  
+
+/* 14.Buscar o nome do correntista e a data de criação da conta, exibindo os correntistas mais antigos primeiro. */
+
 
