@@ -116,4 +116,63 @@ select * from movimentacoes where dataHora > '01/04/2023' and dataHora < '30/04/
 
 /* 14.Buscar o nome do correntista e a data de criação da conta, exibindo os correntistas mais antigos primeiro. */
 
+select clientes.nome, conta.dataAbertura from clientes inner join conta
+on clientes.idCliente = conta.idCliente
+order by conta.dataAbertura asc
 
+
+/* 15.Buscar todos os correntistas que possuem "z" no nome. */
+
+select * from clientes where nome like '%Z%'
+
+
+/* 16.Buscar o total de contas ativas e bloqueadas no JucasBank. */
+
+select statusConta, count (statusConta) from conta group by statusConta
+
+
+/* 17.Buscar o total de contas ativas e bloqueadas no JucasBank, considerando apenas as contas que possuem mais de R$ 5.000,00 */
+
+select statusConta, count (statusConta) from conta where saldo > 5000.00 group by statusConta
+
+
+/* 18.Buscar todas as cidades onde o JucasBank possui correntista, sem que as cidades se repitam, e em ordem alfabética. */
+
+select cidade, count (cidade) from clientes group by cidade
+
+
+/* 19.Buscar a média de valores em contas de correntistas do estado de são paulo apenas. */
+
+select avg (conta.saldo), clientes.estado from conta inner join clientes
+on clientes.idCliente = conta.idCliente where clientes.estado = 'SP' group by clientes.estado
+
+
+/* 20.Buscar o maior valor existente em conta no JucasBank. */
+
+select max (saldo) from conta
+
+
+/* 21.Buscar o id da conta e o saldo da conta de todas as contas ativas e que possuam menos de R$1.000,00 mostrando as de menor valor primeiro. */
+
+select idConta, saldo from conta where saldo < 1000.00 and statusConta = 'ATIVA' order by saldo asc
+
+
+/* 22.Buscar todos os tipos de operações possíveis em ordem alfabética. */
+
+select nomeOperacao from tipoOperacao order by nomeOperacao asc
+
+
+/* 23.Buscar todas as contas e respectivos saldos do JucasBank, do maior saldo para o menor. */
+
+select idConta, saldo from conta order by saldo desc
+
+
+/* 24.Buscar a soma de valores que existem em todas as contas que estão no estado de SP. */
+
+select sum (conta.saldo), clientes.estado from conta inner join clientes
+on clientes.idCliente = conta.idCliente where clientes.estado = 'SP' group by clientes.estado
+
+
+/* 25.Buscar todos os depósitos que ocorreram na conta do Donald. */
+
+select valor, dataHora from movimentacoes where idTipoOperacao = 1 and idContaDestino = 17
