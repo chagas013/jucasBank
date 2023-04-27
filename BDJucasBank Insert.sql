@@ -176,3 +176,10 @@ on clientes.idCliente = conta.idCliente where clientes.estado = 'SP' group by cl
 /* 25.Buscar todos os depósitos que ocorreram na conta do Donald. */
 
 select valor, dataHora from movimentacoes where idTipoOperacao = 1 and idContaDestino = 17
+
+
+/* DESAFIO - Buscar o nome do cliente, o número da conta (id) e o saldo existente, mostrando as contas com maior saldo primeiro. */
+
+select clientes.nome, conta.idConta, saldo from clientes inner join conta
+on clientes.idCliente = conta.idCliente
+order by saldo desc
